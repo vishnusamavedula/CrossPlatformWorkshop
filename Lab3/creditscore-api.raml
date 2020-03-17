@@ -1,0 +1,27 @@
+#%RAML 1.0
+title: CreditScore API
+
+
+/allData:
+  get:
+
+/checkCreditScore:
+  get:
+    queryParameters:
+      firstname:
+        type: string
+      lastname:
+        type: string
+      ssn:
+        type: string
+    responses:
+      200:
+        body:
+          application/json:
+            example:
+              "message": "Information accepted, retrieving credit score"
+      500:
+        body:
+          application/json:
+            example:
+              "message": "Incorrect user information, please try again"

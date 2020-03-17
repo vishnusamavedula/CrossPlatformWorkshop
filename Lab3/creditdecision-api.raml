@@ -1,0 +1,30 @@
+#%RAML 1.0
+title: CreditCheck API
+
+
+/creditCheck:
+  get:
+    queryParameters:
+      firstname:  
+        type: string
+      lastname:
+        type: string
+      ssn:
+        type: string
+      expectedDownPayment:
+        type: number
+      contact:
+        type: string
+      email: 
+        type: string
+    responses:
+      200:
+        body:
+          application/json:
+            example:
+              "descisionStatus": "Thanks for providing your information, you have been approved"
+      500:
+        body:
+          application/json:
+            example:
+              "descisionStatus": "Thanks for providing your information, unfortunately we can't provide a decision now."

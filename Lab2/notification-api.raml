@@ -1,0 +1,73 @@
+#%RAML 1.0
+version: v1
+title: Notification API
+
+
+/sendSMS:
+  displayName: Send SMS
+  
+  post:
+    queryParameters:
+      To_Phone_Number:
+        type: string
+
+    responses:
+      200:
+        body:
+          application/json:
+            example:
+             "responseMessage": "Message sent successfully"      
+      500:
+        body:
+          application/json:
+            example:
+              "responseMessage": "Message server unavailable, please report this to admin"
+
+
+/sendEmail:
+  displayName: Send Email
+
+  post:
+    queryParameters:
+      To_Email_ID:
+        type: string
+    body:
+      application/json:
+        type: string
+
+    responses:
+      200:
+        body:
+          application/json:
+            example:
+             "responseMessage": "Email sent successfully"      
+      500:
+        body:
+          application/json:
+            example:
+              "responseMessage": "Email server unavailable, please report this to admin"  
+
+/sendWhatsapp:
+  displayName: Send Whatsapp
+  
+  post:
+    queryParameters:
+      To_Phone_Number:
+        type: string
+    body:
+      application/json:
+        type: string
+
+    responses:
+      200:
+        body:
+          application/json:
+            example:
+             "responseMessage": "Whatsapp Message sent successfully"      
+      500:
+        body:
+          application/json:
+            example:
+              "responseMessage": "Whatsapp server unavailable, please report this to admin"
+      
+  

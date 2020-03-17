@@ -1,0 +1,65 @@
+#%RAML 1.0
+title: Decision API
+
+/decision:
+  get:
+    queryParameters:
+      firstname:
+        type: string
+      lastname:
+        type: string
+      ssn:
+        type: string
+      expectedDownPayment:
+        type: integer
+    responses:
+      200:
+        body:
+          application/json:
+            example:
+             "message": "success" 
+      500:
+        body:
+          application/json:
+            example:
+              "message": "fail"
+
+
+/decisionReport:
+  get:
+    queryParameters:
+      reportID:
+        type: string
+    responses:
+      200:
+        body:
+          application/json:
+            example:
+              "message": "report found"
+      500:
+        body:
+          application/json:
+            example:
+              "message": "report not found"
+  post:
+    body:
+      application/json:
+        example:
+          firstname: John
+          lastname: Smith
+          creditScore1: 800
+          creditScore2: 810
+          creditScore3: 805
+          expectedDownPayment_dollar: 200000.00 
+    responses:
+      200:
+        body:
+          application/json:
+            example:
+              "message": "report created"
+      500:
+        body:
+          application/json:
+            example:
+              "message": "report creation failed"
+

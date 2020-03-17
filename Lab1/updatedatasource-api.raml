@@ -1,0 +1,30 @@
+#%RAML 1.0
+title: updateDataSource API
+
+/updateDB:
+  get:
+    description: Trigger file update process
+    responses:
+      200:
+        body:
+          application/json:
+            example:
+              "message": "Database updated"
+      500:
+        body:
+            application/json:
+              example:
+                "message": "Database update failed"
+  post:
+    description: Create/Update resource in database
+    responses:
+      200:
+        body:
+          application/json:
+            example:
+              "message": "Database updated"
+      500:
+        body:
+          application/json:
+            example:
+              "message": "Database update failed"
